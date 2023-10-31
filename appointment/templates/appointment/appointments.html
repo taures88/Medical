@@ -12,13 +12,13 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2 class="ser-title">Get Appointment</h2>
+          <h2 class="ser-title">Запись на прием</h2>
           <hr class="botm-line">
         </div>
 
         <div class="col-md-12 col-sm-8 ">
           <div class="contact-info">
-            <h3 class="cnt-ttl">Having Any Query! Or Book an appointment</h3>
+            <h3 class="cnt-ttl">Возникли какие-либо вопросы! Просто запишитесь на прием</h3>
             <div class="space"></div>
 
             {% if messages %}
@@ -42,7 +42,7 @@
             </div>
             {% else %}
 
-              <form action="{% url 'appointment' %}" method="post" role="form" class="contactForm">
+              <form action="{% url 'appointment' %}" method="post">
                   {% csrf_token %}
                   <div class="form-group">
                     <input type="text" name="name" class="form-control br-radius-zero" id="name" placeholder="Full Name *" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -86,7 +86,7 @@
                 </div>
 
                 <div class="form-action">
-                  <button type="submit" class="btn btn-form">Book Appointment</button>
+                  <button type="submit" class="btn btn-form">Отправить</button>
                 </div>
               </form>
             {% endif %}
