@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.conf import settings
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -29,14 +31,11 @@ class ContactView(TemplateView):
         subject = request.POST.get('subject')
         message = request.POST.get('message')
 
-        # if subject == '':
-        #     subject = 'Healthcare Contact'
-
         if name and message and email_from:
             send_mail(
-                subject + " - " + name,
-                message +
-                email_from,
+                subject='Medical+',
+                message=f'Уважаемый {name}, Ваша заявка по теме {subject} принята {datetime.now().replace(microsecond=0)}, наш специалист '
+                        f'свяжется в ближайшее время.',
                 from_email=settings.EMAIL_HOST_USER,
                 recipient_list=[email_from]
             )

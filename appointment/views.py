@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.contrib import messages
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import View
 
@@ -29,5 +31,12 @@ class AppointmentView(View):
         if name and phone and email and doctor and date and time and extra_note:
             Appointment.objects.create(name=name, phone=phone, email=email, doctors=doctor, extra_note=extra_note,
                                        time=time, date=date)
-            messages.success(request, 'Appointment done successfully')
+            send_mail(
+                subject='Medical+',
+                message=f'Уважаемый {name}, Вы записаны к врачу {doctor} {date}, для подтверждения более точного времени '
+                        f'с Вами свяжется наш специалист.\nПрекрасного дня!',
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=[email]
+            )
+            messages.success(request, 'Запись прошла успешно!')
         return redirect('appointment')

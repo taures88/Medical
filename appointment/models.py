@@ -21,7 +21,7 @@ class Appointment(models.Model):
     )
     name = models.CharField(max_length=120, verbose_name='Имя')
     phone = models.CharField(max_length=11, verbose_name='Телефон')
-    email = models.EmailField(unique=True, verbose_name='Почта')
+    email = models.EmailField(verbose_name='Почта')
     doctors = models.ForeignKey(Doctor, on_delete=models.CASCADE, verbose_name='Врачи')
     date = models.DateField(default=timezone.now)
     time = models.CharField(choices=choices_time, max_length=10)
