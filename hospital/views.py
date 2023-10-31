@@ -29,8 +29,8 @@ class ContactView(TemplateView):
         subject = request.POST.get('subject')
         message = request.POST.get('message')
 
-        if subject == '':
-            subject = 'Healthcae Contact'
+        # if subject == '':
+        #     subject = 'Healthcare Contact'
 
         if name and message and email_from:
             send_mail(
