@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'hospital',
     'appointment',
 ]
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,7 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = ['static']
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
 
@@ -137,5 +138,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 EMAIL_HOST_USER = 'taures_88@mail.ru'
-EMAIL_HOST_PASSWORD = 'Ni8rgFwxnfQb5TASr8FG'
+EMAIL_HOST_PASSWORD = 'ndGFYzx7KemvyTL6MzPJ'
