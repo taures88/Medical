@@ -10,7 +10,7 @@ NOT_NULLABLE = {
     'blank': False
 }
 
-
+"""создание модели Врач"""
 class Doctor(models.Model):
     name = models.CharField(max_length=120, verbose_name='Имя')
     speciality = models.CharField(max_length=120, verbose_name='Специальность')

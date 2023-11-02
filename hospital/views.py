@@ -8,10 +8,15 @@ from django.views.generic import ListView, TemplateView
 
 from hospital.models import Doctor
 
+"""основная страница"""
+
 
 class hospitalView(ListView):
     model = Doctor
     template_name = 'index.html'
+
+
+"""выводит список врачей"""
 
 
 class DoctorListView(ListView):
@@ -20,9 +25,15 @@ class DoctorListView(ListView):
     template_name = 'doctor-team.html'
 
 
+"""выводит список специализаций"""
+
+
 class ListServicesView(ListView):
     model = Doctor
     template_name = 'list_services.html'
+
+
+"""вывод контактов и заполнение формы заявки с отправкой на почту"""
 
 
 class ContactView(ListView):

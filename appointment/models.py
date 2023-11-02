@@ -13,6 +13,7 @@ NOT_NULLABLE = {
     'blank': False
 }
 
+"""Создаем приложение для записи на прием к Врачу"""
 
 class Appointment(models.Model):
     choices_time = (

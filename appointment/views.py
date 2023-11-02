@@ -8,6 +8,8 @@ from hospital.models import Doctor
 from .models import Appointment
 
 
+"""Вывод страницы с записью и отправка письма"""
+
 class AppointmentView(View):
     def get(self, request, *args, **kwargs):
         context = {
