@@ -4,25 +4,29 @@ from django.conf import settings
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, ListView
+from django.views.generic import ListView, TemplateView
 
 from hospital.models import Doctor
 
 
-class hospitalView(TemplateView):
+class hospitalView(ListView):
+    model = Doctor
     template_name = 'index.html'
 
 
 class DoctorListView(ListView):
+    model = Doctor
     queryset = Doctor.objects.all()
     template_name = 'doctor-team.html'
 
 
-class ListServicesView(TemplateView):
+class ListServicesView(ListView):
+    model = Doctor
     template_name = 'list_services.html'
 
 
-class ContactView(TemplateView):
+class ContactView(ListView):
+    model = Doctor
     template_name = 'contact.html'
 
     def post(self, request, *args, **kwargs):

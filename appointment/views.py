@@ -11,7 +11,7 @@ from .models import Appointment
 class AppointmentView(View):
     def get(self, request, *args, **kwargs):
         context = {
-            'doctors': Doctor.objects.all()
+            'object_list': Doctor.objects.all()
         }
         return render(request, 'appointment/appointments.html', context)
 
